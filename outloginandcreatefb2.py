@@ -48,46 +48,46 @@ bot = webdriver.Chrome(chrome_options=options)
 
 try:
 
-    a = collection.find_one_and_delete({})
-    print(a['email'])
-    email = a['email']
-    fullname = email.split('@')[0]
+    # a = collection.find_one_and_delete({})
+    # print(a['email'])
+    # email = a['email']
+    # fullname = email.split('@')[0]
 
-    try:
-        try:
-            lastname = fullname.split('_')[1]
-            print('1')
-            lastnamewithnodigits = lastname.translate(remove_digits)
-            firstname = fullname.split('_')[0]
-        except:
-            pass
+    # try:
+    #     try:
+    #         lastname = fullname.split('_')[1]
+    #         print('1')
+    #         lastnamewithnodigits = lastname.translate(remove_digits)
+    #         firstname = fullname.split('_')[0]
+    #     except:
+    #         pass
 
-        try:
-            lastname = fullname.split('.')[1]
-            print('2')
-            lastnamewithnodigits = lastname.translate(remove_digits)
-            firstname = fullname.split('.')[0]
-        except:
-            # firstname  = fullname[:len(fullname)//2]
-            # lastname = fullname[len(fullname)//2:]
-            # lastnamewithnodigits = lastname.translate(remove_digits)
-            print('3')
-            pass
-    except:
-        firstname  = fullname[:len(fullname)//2]
-        lastname = fullname[len(fullname)//2:]
-        lastnamewithnodigits = lastname.translate(remove_digits)
+    #     try:
+    #         lastname = fullname.split('.')[1]
+    #         print('2')
+    #         lastnamewithnodigits = lastname.translate(remove_digits)
+    #         firstname = fullname.split('.')[0]
+    #     except:
+    #         # firstname  = fullname[:len(fullname)//2]
+    #         # lastname = fullname[len(fullname)//2:]
+    #         # lastnamewithnodigits = lastname.translate(remove_digits)
+    #         print('3')
+    #         pass
+    # except:
+    #     firstname  = fullname[:len(fullname)//2]
+    #     lastname = fullname[len(fullname)//2:]
+    #     lastnamewithnodigits = lastname.translate(remove_digits)
 
 
-    # print(fullname)
-    print(firstname)
-    print(lastnamewithnodigits)
+    # # print(fullname)
+    # print(firstname)
+    # print(lastnamewithnodigits)
 
     bot.get('https://login.live.com/login.srf')
 
     bot.save_screenshot('1.png')
 
-    WebDriverWait(bot,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'input[name="loginfmt"]'))).send_keys(email)
+    WebDriverWait(bot,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'input[name="loginfmt"]'))).send_keys('cleora_vonrueden@outlook.com')
 
     bot.save_screenshot('2.png')
 
@@ -205,7 +205,7 @@ try:
         WebDriverWait(bot,10).until(EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Meet Now')]")))
         print('33')
     except:
-        data = {'email': email}
+        data = {'email': 'cleora_vonrueden@outlook.com'}
         collection.insert_one(data)
         bot.save_screenshot('777.png')
         sys.exit('Outlook Not Opened')
@@ -247,13 +247,13 @@ try:
 
     bot.save_screenshot('10.png')
 
-    WebDriverWait(bot,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'input[name="reg_email__"]'))).send_keys(email)
+    WebDriverWait(bot,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'input[name="reg_email__"]'))).send_keys('cleora_vonrueden@outlook.com')
 
-    WebDriverWait(bot,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'input[name="reg_email_confirmation__"]'))).send_keys(email)
+    WebDriverWait(bot,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'input[name="reg_email_confirmation__"]'))).send_keys('cleora_vonrueden@outlook.com')
 
-    WebDriverWait(bot,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'input[name="firstname"]'))).send_keys(firstname)
+    WebDriverWait(bot,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'input[name="firstname"]'))).send_keys('cleora')
 
-    WebDriverWait(bot,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'input[name="lastname"]'))).send_keys(lastnamewithnodigits)
+    WebDriverWait(bot,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'input[name="lastname"]'))).send_keys('vonrueden')
 
     WebDriverWait(bot,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'input[name="reg_passwd__"]'))).send_keys('Jatin@123')
 
@@ -295,7 +295,7 @@ try:
 
         print('180 days Text Came. Account not created')
 
-        data = {'email': email, 'fb': 'No', 'firstname': firstname, 'lastname': lastnamewithnodigits}
+        data = {'email': 'cleora_vonrueden@outlook.com', 'fb': 'No', 'firstname': 'cleora', 'lastname': 'vonrueden'}
 
         collection2.insert_one(data)
 
@@ -338,7 +338,7 @@ try:
         pass
 
     if(isotpcame == 0):
-        data = {'email': email}
+        data = {'email': 'cleora_vonrueden@outlook.com'}
         collection.insert_one(data)
         sys.exit('Fb Otp Page Not came. Exiting Code')
 
@@ -415,7 +415,7 @@ try:
 
     # print('Confirmed FB Account Created')
 
-    data = {'email': email, 'fb': 'Yes', 'firstname': firstname, 'lastname': lastnamewithnodigits}
+    data = {'email': 'cleora_vonrueden@outlook.com', 'fb': 'Yes', 'firstname': 'cleora', 'lastname': 'vonrueden'}
 
     collection2.insert_one(data)
     
@@ -431,7 +431,7 @@ try:
     time.sleep(50000)
     bot.quit()
 except Exception as e:
-    data = {'email': email}
+    data = {'email': 'cleora_vonrueden@outlook.com'}
     collection.insert_one(data)
     # data = {'email': email, 'fb': 'error', 'firstname': firstname, 'lastname': lastnamewithnodigits}
 
