@@ -42,7 +42,7 @@ try:
     bot = uc.Chrome(options=options)
 
     bot.get('https://www.google.com/')
-    time.sleep(3)
+    time.sleep(1)
     bot.get('https://signup.live.com/signup')
     
     # time.sleep(4)
@@ -114,15 +114,15 @@ try:
 
     WebDriverWait(bot,3000).until(EC.presence_of_element_located((By.XPATH, '//*[@id="iSignupAction"]'))).click()
 
-    time.sleep(8)
+    time.sleep(4)
 
     try:
-        WebDriverWait(bot,20).until(EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Continue')]"))).click()
+        WebDriverWait(bot,10).until(EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Continue')]"))).click()
     
     except:
         pass
     try:
-        WebDriverWait(bot,20).until(EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Continue')]"))).click()
+        WebDriverWait(bot,10).until(EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Continue')]"))).click()
     
     except:
         pass
@@ -134,20 +134,20 @@ try:
     #OutlookDone? Then ->
     WebDriverWait(bot,3000).until(EC.presence_of_element_located((By.XPATH, '//*[@id="idBtn_Back"]'))).click()
 
-    time.sleep(10)
+    time.sleep(5)
 
     data = {'email': email}
     collection.insert_one(data)
     print('Added To DB!!!!!!!!!!!')
 
     try:
-        WebDriverWait(bot,15).until(EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Continue')]"))).click()
+        WebDriverWait(bot,10).until(EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Continue')]"))).click()
     
     except:
         pass
 
     try:
-        WebDriverWait(bot,15).until(EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Continue')]"))).click()
+        WebDriverWait(bot,10).until(EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Continue')]"))).click()
     
     except:
         pass
@@ -158,14 +158,14 @@ try:
     bot.get('https://outlook.live.com/mail/0/')
 
     try:
-        WebDriverWait(bot,15).until(EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Meet Now')]")))
+        WebDriverWait(bot,10).until(EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Meet Now')]")))
         print('3')
     except:
         bot.get('https://outlook.live.com/mail/0/')
         time.sleep(10)
         pass
     try:
-        WebDriverWait(bot,15).until(EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Meet Now')]")))
+        WebDriverWait(bot,10).until(EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Meet Now')]")))
         print('33')
     except:
         # data = {'email': email}
@@ -309,7 +309,7 @@ try:
 
     bot.get('https://outlook.live.com/mail/0/')
 
-    time.sleep(10)
+    time.sleep(2)
 
     
     bot.save_screenshot('133.png')
