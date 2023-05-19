@@ -43,8 +43,8 @@ try:
 
     bot.get('https://www.google.com/')
     time.sleep(1)
-    bot.get('https://www.shareasale.com/r.cfm?b=363443&u=3595261&m=38014')
-    time.sleep(5)
+    # bot.get('https://www.shareasale.com/r.cfm?b=363443&u=3595261&m=38014')
+    # time.sleep(5)
     bot.get('https://signup.live.com/signup')
     
     # time.sleep(4)
