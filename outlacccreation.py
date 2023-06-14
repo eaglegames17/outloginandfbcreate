@@ -38,7 +38,7 @@ try:
         options.add_argument('--disable-popup-blocking')
         firstname = (names.get_first_name(gender='male')).lower()
         lastname = (names.get_last_name()).lower()
-        email = firstname+'_'+lastname+str(random.randrange(7598,100000))+'@outlook.com'
+        email = firstname+'_'+lastname+str(random.randrange(400,2000))+'@outlook.com'
         print(email)
         bot = uc.Chrome(options=options)
 
