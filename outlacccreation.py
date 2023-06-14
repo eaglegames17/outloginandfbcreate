@@ -32,7 +32,7 @@ count = 1
     # print((names.get_first_name(gender='male')+'_'+names.get_last_name()).lower()+str(random.randrange(7598,100000))+'@outlook.com')
 
 try:
-    while count <= 3:
+    while count <= 2:
         options = webdriver.ChromeOptions() 
 # options.headless = True
         options.add_argument('--disable-popup-blocking')
