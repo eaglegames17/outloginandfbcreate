@@ -32,7 +32,7 @@ count = 1
     # print((names.get_first_name(gender='male')+'_'+names.get_last_name()).lower()+str(random.randrange(7598,100000))+'@outlook.com')
 
 try:
-    while count <= 2:
+    while count <= 3:
         options = webdriver.ChromeOptions() 
 # options.headless = True
         options.add_argument('--disable-popup-blocking')
@@ -118,7 +118,7 @@ try:
         time.sleep(8)
 
         try:
-            WebDriverWait(bot,7).until(EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Continue')]"))).click()
+            WebDriverWait(bot,20).until(EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Continue')]"))).click()
 
             data = {'email': email}
             collection.insert_one(data)
@@ -135,7 +135,7 @@ try:
         except:
             pass
         try:
-            WebDriverWait(bot,7).until(EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Continue')]"))).click()
+            WebDriverWait(bot,20).until(EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Continue')]"))).click()
 
             data = {'email': email}
             collection.insert_one(data)
@@ -165,6 +165,7 @@ try:
         collection.insert_one(data)
         print('Added To DB!!!!!!!!!!!')
          
+        count = count + 1
 
         bot.quit()
 
