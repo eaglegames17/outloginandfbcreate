@@ -21,7 +21,7 @@ import certifi
 # bot.get('https://login.live.com/login.srf')
 
 client = MongoClient(host="mongodb+srv://jatin:jatin123@cluster0.1zrdh.mongodb.net/outlookmail?retryWrites=true&w=majority",tlsCAFile=certifi.where(),connect=False)
-collection = client.get_database("outlookmail").get_collection("newmail2")
+collection = client.get_database("outlookmail").get_collection("newmail3")
 
 
 count = 1
